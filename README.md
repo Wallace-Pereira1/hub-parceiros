@@ -1,55 +1,73 @@
-# ☀️ SolarGrid Social Portal v2.0
+# React + TypeScript + Vite
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![Supabase](https://img.shields.io/badge/Supabase-1C1C1C?style=for-the-badge&logo=supabase&logoColor=3ECF8E)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-> **Status do Projeto:** Finalizado e Otimizado
-> 
-> **Engenheiro Responsável:** [Wallace Pereira](https://github.com/Wallace-Pereira1)  
-> **Solicitante:** Vicente Brizola
+Currently, two official plugins are available:
 
-## 📝 Sobre o Projeto
-O **SolarGrid Social** é uma aplicação Fullstack moderna desenvolvida para centralizar comunicações e conteúdos corporativos. O desafio principal foi transformar uma estrutura de dados plana (JSON) em um ambiente **totalmente relacional** no Supabase, permitindo pesquisas complexas e filtragens dinâmicas com alta performance.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## 🚀 Diferenciais Técnicos
-* **Arquitetura Relacional Dinâmica:** Normalização de dados externos em tabelas vinculadas (`profiles` -> `posts` -> `comments`) com integridade referencial via Supabase (PostgreSQL).
-* **Filtro Inteligente de Predicados:** Sistema de busca que permite alternar o alvo da pesquisa entre Autor (Nome/Username), Empresa ou Conteúdo dos Comentários.
-* **Interface Premium & Dark Mode:** UI desenvolvida com foco na paleta de cores institucional da SolarGrid, incluindo um motor de temas dinâmico via CSS Variables.
-* **Modularização Profissional:** Estilização isolada com **CSS Modules**, evitando vazamento de estilos e facilitando a manutenção do código.
-* **Sincronização de Estado:** Gerenciamento eficiente de estados para garantir que o feed carregue 100% dos dados de forma fluida.
+## React Compiler
 
-## 🛠️ Stack Utilizada
-* **Frontend:** React 18 + Vite (TypeScript)
-* **Backend & DB:** Supabase (PostgreSQL)
-* **Estilização:** CSS Modules + Custom Properties
-* **Integração:** Fetch API + Supabase Client
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## ⚙️ Configuração Local
-1.  **Clone o repositório:**
-    ```bash
-    git clone [https://github.com/Wallace-Pereira1/solargrid-app.git](https://github.com/Wallace-Pereira1/solargrid-app.git)
-    ```
-2.  **Instale as dependências:**
-    ```bash
-    npm install
-    ```
-3.  **Variáveis de Ambiente:**
-    Crie um arquivo `.env` na raiz:
-    ```env
-    VITE_SUPABASE_URL=sua_url_supabase
-    VITE_SUPABASE_ANON_KEY=sua_chave_anonima
-    ```
-4.  **Execução:**
-    ```bash
-    npm run dev
-    ```
+## Expanding the ESLint configuration
 
-## 🗄️ SQL de Limpeza (Zerar Banco)
-Caso precise resetar o ambiente para uma nova demonstração:
-```sql
-DELETE FROM comments;
-DELETE FROM posts;
-DELETE FROM profiles;
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
+
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
