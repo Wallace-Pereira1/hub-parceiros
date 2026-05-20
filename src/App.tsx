@@ -148,7 +148,7 @@ function App() {
       <div className={styles.loginWrapper}>
         <div className={styles.loginCard}>
           <div className={styles.logo} style={{ color: '#0b1b35', marginBottom: '24px', fontSize: '1.8rem' }}>
-            Hub Parceiros<span style={{ color: '#e1b12c' }}>Social</span>
+            Hub Parceiros <span style={{ color: '#e1b12c' }}>Social</span>
           </div>
           
           <form onSubmit={handleLogin} className={styles.loginForm}>
