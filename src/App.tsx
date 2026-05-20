@@ -7,8 +7,9 @@ import styles from './App.module.css';
 
 function App() {
   const [session, setSession] = useState<any>(null);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  // Estados de Login pré-preenchidos com a conta de teste para facilitar o acesso
+  const [email, setEmail] = useState('teste@hub.com');
+  const [password, setPassword] = useState('123456');
   const [loading, setLoading] = useState(false);
   const [feed, setFeed] = useState<any[]>([]);
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -146,14 +147,47 @@ function App() {
     return (
       <div className={styles.loginWrapper}>
         <div className={styles.loginCard}>
-          <div className={styles.logo} style={{ color: '#0b1b35', marginBottom: '20px' }}>
+          <div className={styles.logo} style={{ color: '#0b1b35', marginBottom: '24px', fontSize: '1.8rem' }}>
             Hub Parceiros<span style={{ color: '#e1b12c' }}>Social</span>
           </div>
-          <form onSubmit={handleLogin}>
-            <input type="email" placeholder="E-mail" className={styles.loginInput} value={email} onChange={e => setEmail(e.target.value)} required />
-            <input type="password" placeholder="Senha" className={styles.loginInput} value={password} onChange={e => setPassword(e.target.value)} required />
-            <button type="submit" className={styles.btnLogin} disabled={loading}>{loading ? 'Acessando...' : 'Acessar'}</button>
+          
+          <form onSubmit={handleLogin} className={styles.loginForm}>
+            <input 
+              type="email" 
+              placeholder="E-mail" 
+              className={styles.loginInput} 
+              value={email} 
+              onChange={e => setEmail(e.target.value)} 
+              required 
+            />
+            <input 
+              type="password" 
+              placeholder="Senha" 
+              className={styles.loginInput} 
+              value={password} 
+              onChange={e => setPassword(e.target.value)} 
+              required 
+            />
+            <button type="submit" className={styles.btnLogin} disabled={loading}>
+              {loading ? 'Acessando...' : 'Acessar'}
+            </button>
           </form>
+
+          {/* Card de Acesso Rápido Super Legível e Alinhado */}
+          <div className={styles.testAccountCard}>
+            <p className={styles.testAccountTitle}>
+              🔑 Acesso Rápido para Testes
+            </p>
+            <div className={styles.testAccountRow}>
+              <span><strong>E-mail:</strong></span>
+              <code className={styles.testAccountCode}>teste@hub.com</code>
+            </div>
+            <div className={styles.testAccountRow}>
+              <span><strong>Senha:</strong></span>
+              <code className={styles.testAccountCode}>123456</code>
+            </div>
+          </div>
+
         </div>
       </div>
     );

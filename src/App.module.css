@@ -209,9 +209,109 @@
 .statusDone { color: #10b981; font-weight: bold; display: flex; align-items: center; gap: 4px; }
 .statusPending { color: #f59e0b; font-weight: 500; }
 
-/* 9. LOGIN (OPCIONAL) */
-.loginWrapper { display: flex; align-items: center; justify-content: center; height: 100vh; background: #1a2333; }
-.loginCard { background: white; padding: 40px; border-radius: 16px; width: 350px; text-align: center; }
+/* 9. LOGIN (PROFISSIONAL) */
+.loginWrapper { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  height: 100vh; 
+  background: #0b1426; /* Fundo escuro elegante combinando com o tema */
+}
+
+.loginCard { 
+  background: #ffffff; 
+  padding: 40px 30px; 
+  border-radius: 16px; 
+  width: 100%;
+  max-width: 380px; 
+  text-align: center; 
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Empilha os inputs com espaçamento perfeito */
+  margin-bottom: 24px;
+}
+
+.loginInput {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background-color: #f8fafc;
+  color: #1e293b;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.loginInput:focus {
+  border-color: #3182ce;
+}
+
+.btnLogin {
+  background-color: #1a2333;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btnLogin:hover {
+  background-color: #2d3748;
+}
+
+.btnLogin:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* CARD DE ACESSO RÁPIDO */
+.testAccountCard {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.testAccountTitle {
+  font-size: 11px;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.testAccountRow {
+  font-size: 13px;
+  color: #334155;
+  margin: 6px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.testAccountCode {
+  background-color: #e2e8f0;
+  color: #0f172a;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: 600;
+}
 
 .todoFilterBar {
   display: flex;
