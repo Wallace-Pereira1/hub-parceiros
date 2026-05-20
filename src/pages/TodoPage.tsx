@@ -22,7 +22,7 @@ export function TodoPage() {
     if (!error) setTodos(data || []);
   }
 
-  // Lógica de "Limpar e Carregar" solicitada pelo Vicente
+  // Lógica de "Limpar e Carregar"
   async function handleSync() {
     setIsSyncing(true);
     try {
