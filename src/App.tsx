@@ -14,7 +14,7 @@ function App() {
   const [feed, setFeed] = useState<any[]>([]);
   const [todos, setTodos] = useState<Todo[]>([]);
   const [activeTab, setActiveTab] = useState<'feed' | 'todos'>('feed');
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode] = useState(true);
 
   // Estados de Filtro
   const [searchTerm, setSearchTerm] = useState('');
@@ -147,8 +147,8 @@ function App() {
     return (
       <div className={styles.loginWrapper}>
         <div className={styles.loginCard}>
-          <div className={styles.logo} style={{ color: '#0b1b35', marginBottom: '24px', fontSize: '1.8rem' }}>
-            Hub Parceiros <span style={{ color: '#e1b12c' }}>Social</span>
+          <div className={styles.logo} style={{ marginBottom: '24px', fontSize: '1.8rem' }}>
+            Hub Parceiros <span>Social</span>
           </div>
           
           <form onSubmit={handleLogin} className={styles.loginForm}>
@@ -203,7 +203,6 @@ function App() {
             <button onClick={() => setActiveTab('todos')} className={activeTab === 'todos' ? styles.activeTab : styles.btnNav}>Tarefas</button>
           </nav>
           <div className={styles.navActions}>
-            <button onClick={() => setIsDarkMode(!isDarkMode)} className={styles.btnMode}>{isDarkMode ? '☀️' : '🌙'}</button>
             <button onClick={() => supabase.auth.signOut()} className={styles.btnLogout}>Sair</button>
           </div>
         </div>
