@@ -147,7 +147,7 @@ function App() {
       <div className={styles.loginWrapper}>
         <div className={styles.loginCard}>
           <div className={styles.logo} style={{ color: '#0b1b35', marginBottom: '20px' }}>
-            SolarGrid <span style={{ color: '#e1b12c' }}>Social</span>
+            Hub Parceiros<span style={{ color: '#e1b12c' }}>Social</span>
           </div>
           <form onSubmit={handleLogin}>
             <input type="email" placeholder="E-mail" className={styles.loginInput} value={email} onChange={e => setEmail(e.target.value)} required />
@@ -163,7 +163,7 @@ function App() {
     <div className={`${styles.container} ${isDarkMode ? styles.darkMode : ''}`}>
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <div className={styles.logo}>SolarGrid <span>Social</span></div>
+          <div className={styles.logo}>Hub Parceiros <span>Social</span></div>
           <nav className={styles.nav}>
             <button onClick={() => setActiveTab('feed')} className={activeTab === 'feed' ? styles.activeTab : styles.btnNav}>Feed</button>
             <button onClick={() => setActiveTab('todos')} className={activeTab === 'todos' ? styles.activeTab : styles.btnNav}>Tarefas</button>
