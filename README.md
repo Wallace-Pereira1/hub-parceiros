@@ -1,73 +1,52 @@
-# React + TypeScript + Vite
+# 🚀 Hub de Parceiros
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bem-vindo ao **Hub de Parceiros**, uma solução centralizada desenvolvida para a gestão estratégica, integração e monitoramento de parceiros de negócios. Este projeto foi arquitetado com foco em alta performance, escalabilidade e manutenibilidade.
 
-Currently, two official plugins are available:
+## 🎯 Objetivo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+O Hub de Parceiros visa otimizar a operação, eliminando processos manuais através da centralização de dados. O sistema proporciona:
 
-## React Compiler
+- **Visibilidade em tempo real**: Controle total do status de cada parceria.
+- **Estruturação de dados**: Modelagem robusta garantindo integridade e confiabilidade.
+- **Eficiência Operacional**: Integração inteligente via automações, reduzindo drasticamente o tempo de resposta.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠 Tecnologias
 
-## Expanding the ESLint configuration
+Este projeto utiliza uma stack moderna, selecionada para garantir robustez e agilidade no desenvolvimento:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Front-end**: React, TypeScript, Tailwind CSS
+- **Back-end/Banco**: Supabase (PostgreSQL)
+- **Automação**: n8n
+- **Versionamento**: Git & GitHub
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📦 Estrutura do Projeto
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+```text
+├── src/
+│   ├── components/  # Componentes reutilizáveis de UI
+│   ├── services/    # Conexão com Supabase e APIs
+│   ├── hooks/       # Lógica de estados e custom hooks
+│   └── types/       # Definições de interfaces (TypeScript)
+├── public/          # Assets estáticos
+└── tailwind.config.js
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+🚀 Como rodar o projeto
+Clone o repositório: git clone [https://github.com/seu-usuario/hub-de-parceiros.git](https://github.com/seu-usuario/hub-de-parceiros.git)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Instale as dependências: npm install
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Configure as variáveis de ambiente:
+Crie um arquivo .env na raiz e adicione suas credenciais do Supabase:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Snippet de código
+   VITE_SUPABASE_URL=sua_url_aqui
+   VITE_SUPABASE_ANON_KEY=sua_key_aqui
+
+Inicie o servidor de desenvolvimento:
+
+Bash
+   npm run dev
+
+Este é um projeto pessoal focado em excelência técnica e resolução de problemas reais. Feedback, sugestões e colaborações são sempre muito bem-vindos!
+
+Desenvolvido por Wallace de Carvalho Pereira
